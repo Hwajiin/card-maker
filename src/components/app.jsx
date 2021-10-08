@@ -2,19 +2,23 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Login from "./login";
 import styled from "styled-components";
+import Maker from "./maker";
 
 const SApp = styled.div`
   width: 100vw;
   height: 100vh;
 `;
 
-const App = () => {
+const App = ({ authService }) => {
   return (
     <SApp>
       <BrowserRouter>
         <Switch>
-          <Route>
-            <Login />
+          <Route exact path="/">
+            <Login authService={authService} />
+          </Route>
+          <Route path="/maker">
+            <Maker authService={authService} />
           </Route>
         </Switch>
       </BrowserRouter>

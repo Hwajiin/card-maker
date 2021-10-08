@@ -43,9 +43,23 @@ const Button = styled.button`
   color: #4e86ec;
 `;
 
-const Login = () => {
+const Login = ({ authService }) => {
   const history = useHistory();
-  const onLogin = () => {};
+
+  const goToMaker = (userId) => {
+    if (userId) {
+      history.push({
+        pathname: "/maker",
+        state: { id: userId },
+      });
+    }
+  };
+
+  const onLogin = (e) => {
+    authService //
+      .login(e.currentTarget.textContent)
+      .then((result) => goToMaker(result.user.uid));
+  };
 
   return (
     <Div>
