@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import styled from "styled-components";
 import Footer from "./footer";
@@ -60,6 +60,13 @@ const Login = ({ authService }) => {
       .login(e.currentTarget.textContent)
       .then((result) => goToMaker(result.user.uid));
   };
+
+  useEffect(() => {
+    authService //
+      .onAuthChange((user) => {
+        user && goToMaker(user.uid);
+      });
+  });
 
   return (
     <Div>
