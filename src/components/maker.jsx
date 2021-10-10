@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import styled from "styled-components";
 import Editor from "./editor";
@@ -22,6 +22,39 @@ const Main = styled.main`
 `;
 
 const Maker = ({ authService }) => {
+  const [cards, setCards] = useState({
+    0: {
+      id: 0,
+      name: "jiin",
+      company: "kakao",
+      email: "borderline0px@gmail.com",
+      message: "fighting",
+      theme: "colorful",
+      fileName: "jiin",
+      fileURL: null,
+    },
+    1: {
+      id: 1,
+      name: "hyoseob",
+      company: "kakao",
+      email: "hyoseob@gmail.com",
+      message: "hongcheongi",
+      theme: "dark",
+      fileName: "hyoseob",
+      fileURL: null,
+    },
+    2: {
+      id: 2,
+      name: "jk",
+      company: "kakao",
+      email: "jkxxx@gmail.com",
+      message: "permission to dance",
+      theme: "light",
+      fileName: "jk",
+      fileURL: null,
+    },
+  });
+
   const onLogout = () => {
     authService //
       .logout();
@@ -42,8 +75,8 @@ const Maker = ({ authService }) => {
     <SMaker>
       <Header onLogout={onLogout} />
       <Main>
-        <Editor />
-        <Preview />
+        <Editor cards={cards} />
+        <Preview cards={cards} />
       </Main>
       <Footer />
     </SMaker>

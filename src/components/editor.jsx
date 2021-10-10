@@ -1,18 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import CardEditForm from "./card_edit_form";
 
 const Section = styled.section`
-  width: 50%;
-  @media screen and (max-width: 500px) {
-    width: 100%;
-    height: 50%;
-  }
+  flex-basis: 50%;
 `;
 
-const Editor = () => {
+const Editor = ({ cards }) => {
   return (
     <Section>
       <h1>Editor</h1>
+      {Object.keys(cards).map((key) => (
+        <CardEditForm key={cards[key].id} card={cards[key]} />
+      ))}
     </Section>
   );
 };

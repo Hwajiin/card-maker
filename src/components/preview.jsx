@@ -1,18 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import Card from "./card";
 
 const Section = styled.section`
-  width: 50%;
-  @media screen and (max-width: 500px) {
-    width: 100%;
-    height: 50%;
-  }
+  flex-basis: 50%;
+  /* overflow-y: scroll; */
 `;
 
-const Preview = () => {
+const Preview = ({ cards }) => {
   return (
     <Section>
       <h1>Preview</h1>
+      <ul>
+        {Object.keys(cards).map((key) => (
+          <Card key={cards[key].id} card={cards[key]} />
+        ))}
+      </ul>
     </Section>
   );
 };
