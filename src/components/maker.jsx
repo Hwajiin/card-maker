@@ -26,6 +26,7 @@ const Maker = ({ authService }) => {
     0: {
       id: 0,
       name: "jiin",
+      title: "for you",
       company: "kakao",
       email: "borderline0px@gmail.com",
       message: "fighting",
@@ -35,6 +36,7 @@ const Maker = ({ authService }) => {
     },
     1: {
       id: 1,
+      title: "for you",
       name: "hyoseob",
       company: "kakao",
       email: "hyoseob@gmail.com",
@@ -45,6 +47,7 @@ const Maker = ({ authService }) => {
     },
     2: {
       id: 2,
+      title: "for you",
       name: "jk",
       company: "kakao",
       email: "jkxxx@gmail.com",
