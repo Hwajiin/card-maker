@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CardEditForm from "./card_edit_form";
+import CardAddForm from "./card_add_form";
 
 const Section = styled.section`
   flex-basis: 50%;
@@ -18,6 +19,7 @@ const Editor = ({ cards, addCards, updateCards, deleteCards }) => {
           deleteCards={deleteCards}
         />
       ))}
+      <CardAddForm addCards={addCards} />
     </Section>
   );
 };
