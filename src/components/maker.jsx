@@ -74,11 +74,32 @@ const Maker = ({ authService }) => {
       });
   });
 
+  const createOrUpdateCards = (card) => {
+    setCards((cards) => {
+      const updated = { ...cards };
+      updated[card.id] = card;
+      return updated;
+    });
+  };
+
+  const deleteCards = (card) => {
+    setCards((cards) => {
+      const updated = { ...cards };
+      delete updated[card.id];
+      return updated;
+    });
+  };
+
   return (
     <SMaker>
       <Header onLogout={onLogout} />
       <Main>
-        <Editor cards={cards} />
+        <Editor
+          cards={cards}
+          addCards={createOrUpdateCards}
+          updateCards={createOrUpdateCards}
+          deleteCards={deleteCards}
+        />
         <Preview cards={cards} />
       </Main>
       <Footer />

@@ -1,5 +1,14 @@
 import React from "react";
 
-const ImageFileInput = (props) => <h1>Image</h1>;
+const ImageFileInput = () => {
+  return (
+    <div>
+      {/* <button>{"No file" || fileName}</button> */}
+      <form>
+        <input type="file" accept="image/*" />
+      </form>
+    </div>
+  );
+};
 
 export default ImageFileInput;
