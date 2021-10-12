@@ -27,28 +27,39 @@ const FileInputContainer = styled.div`
   flex: 1 1 50%;
 `;
 
-const CardEditForm = ({ card }) => {
+const CardEditForm = ({ card, updateCards, deleteCards }) => {
   const { name, company, email, message, fileURL, fileName, theme, title } =
     card;
 
-  const onClick = () => {};
+  const onChange = (e) => {
+    if (e.currentTarget == null) return;
+    e.preventDefault();
+    updateCards({
+      ...card,
+      [e.currentTarget.name]: [e.currentTarget.value],
+    });
+  };
+
+  const onSubmit = () => {
+    deleteCards(card);
+  };
 
   return (
     <Form>
-      <Input type="text" name="name" value={name} />
-      <Input type="text" name="company" value={company} />
-      <Select name="theme" value={theme}>
+      <Input type="text" name="name" value={name} onChange={onChange} />
+      <Input type="text" name="company" value={company} onChange={onChange} />
+      <Select name="theme" value={theme} onChange={onChange}>
         <option value="dark">dark</option>
         <option value="light">light</option>
         <option value="colorful">colorful</option>
       </Select>
-      <Input type="text" name="email" value={email} />
-      <Input type="text" name="title" value={title} />
-      <Textarea name="message" value={message}></Textarea>
+      <Input type="text" name="email" value={email} onChange={onChange} />
+      <Input type="text" name="title" value={title} onChange={onChange} />
+      <Textarea name="message" value={message} onChange={onChange}></Textarea>
       <FileInputContainer>
         <ImageFileInput />
       </FileInputContainer>
-      <Button name="Delete" onClick={onClick} />
+      <Button name="Delete" onClick={onSubmit} />
     </Form>
   );
 };

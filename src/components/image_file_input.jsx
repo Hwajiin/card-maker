@@ -4,9 +4,8 @@ const ImageFileInput = () => {
   return (
     <div>
       {/* <button>{"No file" || fileName}</button> */}
-      <form>
-        <input type="file" accept="image/*" />
-      </form>
+
+      <input type="file" accept="image/*" />
     </div>
   );
 };

@@ -6,12 +6,17 @@ const Section = styled.section`
   flex-basis: 50%;
 `;
 
-const Editor = ({ cards }) => {
+const Editor = ({ cards, addCards, updateCards, deleteCards }) => {
   return (
     <Section>
       <h1>Editor</h1>
       {Object.keys(cards).map((key) => (
-        <CardEditForm key={cards[key].id} card={cards[key]} />
+        <CardEditForm
+          key={cards[key].id}
+          card={cards[key]}
+          updateCards={updateCards}
+          deleteCards={deleteCards}
+        />
       ))}
     </Section>
   );
