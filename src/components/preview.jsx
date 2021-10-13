@@ -4,7 +4,7 @@ import Card from "./card";
 
 const Section = styled.section`
   flex-basis: 50%;
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
 `;
 
 const Preview = ({ cards }) => {

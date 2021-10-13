@@ -14,6 +14,7 @@ const SMaker = styled.div`
 `;
 
 const Main = styled.main`
+  min-height: 0;
   flex: 1;
   display: flex;
   @media screen and (max-width: 500px) {

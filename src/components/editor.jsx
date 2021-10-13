@@ -5,6 +5,7 @@ import CardAddForm from "./card_add_form";
 
 const Section = styled.section`
   flex-basis: 50%;
+  overflow-y: scroll;
 `;
 
 const Editor = ({ cards, addCards, updateCards, deleteCards }) => {
