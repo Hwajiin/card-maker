@@ -8,19 +8,20 @@ const Section = styled.section`
   overflow-y: scroll;
 `;
 
-const Editor = ({ cards, addCards, updateCards, deleteCards }) => {
+const Editor = ({ FileInput, cards, addCards, updateCards, deleteCards }) => {
   return (
     <Section>
       <h1>Editor</h1>
       {Object.keys(cards).map((key) => (
         <CardEditForm
           key={cards[key].id}
+          FileInput={FileInput}
           card={cards[key]}
           updateCards={updateCards}
           deleteCards={deleteCards}
         />
       ))}
-      <CardAddForm addCards={addCards} />
+      <CardAddForm FileInput={FileInput} addCards={addCards} />
     </Section>
   );
 };

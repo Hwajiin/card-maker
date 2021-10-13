@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "./button";
-import ImageFileInput from "./image_file_input";
 
 const Form = styled.form`
   display: flex;
@@ -27,9 +26,17 @@ const FileInputContainer = styled.div`
   flex: 1 1 50%;
 `;
 
-const CardEditForm = ({ card, updateCards, deleteCards }) => {
+const CardEditForm = ({ FileInput, card, updateCards, deleteCards }) => {
   const { name, company, email, message, fileURL, fileName, theme, title } =
     card;
+
+  const onFileChange = (file) => {
+    updateCards({
+      ...card,
+      fileName: file.name,
+      fileURL: file.url,
+    });
+  };
 
   const onChange = (e) => {
     if (e.currentTarget == null) return;
@@ -57,7 +64,7 @@ const CardEditForm = ({ card, updateCards, deleteCards }) => {
       <Input type="text" name="title" value={title} onChange={onChange} />
       <Textarea name="message" value={message} onChange={onChange}></Textarea>
       <FileInputContainer>
-        <ImageFileInput />
+        <FileInput onFileChange={onFileChange} name={fileName} />
       </FileInputContainer>
       <Button name="Delete" onClick={onSubmit} />
     </Form>

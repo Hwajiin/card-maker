@@ -9,7 +9,7 @@ const SApp = styled.div`
   height: 100vh;
 `;
 
-const App = ({ authService }) => {
+const App = ({ authService, FileInput }) => {
   return (
     <SApp>
       <BrowserRouter>
@@ -18,7 +18,7 @@ const App = ({ authService }) => {
             <Login authService={authService} />
           </Route>
           <Route path="/maker">
-            <Maker authService={authService} />
+            <Maker authService={authService} FileInput={FileInput} />
           </Route>
         </Switch>
       </BrowserRouter>

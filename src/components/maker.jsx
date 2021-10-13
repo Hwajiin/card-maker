@@ -22,7 +22,7 @@ const Main = styled.main`
   }
 `;
 
-const Maker = ({ authService }) => {
+const Maker = ({ authService, FileInput }) => {
   const [cards, setCards] = useState({
     0: {
       id: 0,
@@ -96,6 +96,7 @@ const Maker = ({ authService }) => {
       <Header onLogout={onLogout} />
       <Main>
         <Editor
+          FileInput={FileInput}
           cards={cards}
           addCards={createOrUpdateCards}
           updateCards={createOrUpdateCards}
