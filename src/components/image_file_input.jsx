@@ -1,7 +1,23 @@
 import React, { useRef, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-const Loader = styled.div``;
+const spin = keyframes`
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
+  }
+`;
+
+const Loader = styled.div`
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 3px solid grey;
+  border-top: 3px solid pink;
+  animation: ${spin} 2s linear infinite;
+`;
 
 const SInput = styled.input`
   display: none;
