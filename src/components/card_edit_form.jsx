@@ -55,7 +55,7 @@ const CardEditForm = ({ FileInput, card, updateCards, deleteCards }) => {
     <Form>
       <Input type="text" name="name" value={name} onChange={onChange} />
       <Input type="text" name="company" value={company} onChange={onChange} />
-      <Select name="theme" value={theme} onChange={onChange}>
+      <Select name="theme" onChange={onChange} value={theme}>
         <option value="dark">dark</option>
         <option value="light">light</option>
         <option value="colorful">colorful</option>

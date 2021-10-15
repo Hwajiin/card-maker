@@ -1,4 +1,4 @@
-import { getDatabase, ref, set, onValue, remove } from "firebase/database";
+import { getDatabase, ref, set, onValue, remove, off } from "firebase/database";
 
 class CardRepository {
   constructor() {
@@ -11,7 +11,7 @@ class CardRepository {
       const data = snapshot.val();
       data && onUpdate(data);
     });
-    return () => ref.off();
+    return () => off();
   }
 
   saveCard(userId, card) {
@@ -22,3 +22,5 @@ class CardRepository {
     remove(ref(this.database, `${userId}/cards/${card.id}`));
   }
 }
+
+export default CardRepository;

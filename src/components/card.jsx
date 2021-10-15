@@ -44,7 +44,9 @@ const Card = ({ card }) => {
 };
 
 const getStyled = (theme) => {
-  switch (theme) {
+  const themeTitle = typeof theme === "string" ? theme : theme[0];
+
+  switch (themeTitle) {
     case "dark":
       return { background: "black", fontColor: "white" };
     case "light":
